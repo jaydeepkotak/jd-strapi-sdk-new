@@ -1,0 +1,16 @@
+{
+  "name": "strapi-layout-plugin",
+  "version": "1.0.0",
+  "description": "Strapi layout engine plugin for Sitecore-like routing",
+  "strapi": {
+    "name": "strapi-layout-plugin",
+    "description": "Strapi layout engine plugin for Sitecore-like routing",
+    "kind": "plugin"
+  },
+  "dependencies": {},
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=6.0.0"
+  },
+  "main": "./strapi-server.js"
+}
