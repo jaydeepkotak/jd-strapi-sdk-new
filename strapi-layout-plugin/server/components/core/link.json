@@ -1,0 +1,28 @@
+{
+  "collectionName": "components_core_links",
+  "info": {
+    "displayName": "Link",
+    "description": "This component is used to create reusable links across the website. It supports link text, URL (href), internal/external identification, and target options such as opening in the same or new tab."
+  },
+  "options": {},
+  "attributes": {
+    "text": {
+      "type": "string"
+    },
+    "href": {
+      "type": "string",
+      "required": true
+    },
+    "isInternal": {
+      "type": "boolean"
+    },
+    "target": {
+      "type": "enumeration",
+      "enum": [
+        "_self",
+        "_blank"
+      ]
+    }
+  },
+  "config": {}
+}

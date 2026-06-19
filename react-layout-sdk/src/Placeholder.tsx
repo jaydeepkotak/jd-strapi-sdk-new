@@ -18,7 +18,7 @@ export const ComponentFactory: React.FC<ComponentFactoryProps> = ({
   const Component = componentMap[componentName];
 
   if (!Component) {
-    console.warn(`[Velox SDK] Component not found for: ${componentName}`);
+    console.warn(`[JD SDK] Component not found for: ${componentName}`);
     return (
       <div style={{
           padding: '2rem', 

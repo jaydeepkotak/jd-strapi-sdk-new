@@ -2,38 +2,38 @@ export { Placeholder, ComponentFactory } from './Placeholder';
 export type { PlaceholderProps, ComponentFactoryProps } from './Placeholder';
 
 // Useful type definitions for the API response
-export interface VeloxPlaceholderData {
+export interface JDPlaceholderData {
   __component: string;
   [key: string]: any;
 }
 
-export interface VeloxRoute {
+export interface JDRoute {
   name: string;
   displayName: string;
-  placeholders: Record<string, VeloxPlaceholderData[]>;
+  placeholders: Record<string, JDPlaceholderData[]>;
 }
 
-export interface VeloxContext {
+export interface JDContext {
   pageEditing: boolean;
   site: Record<string, any>;
   language: string;
   locales: any[];
 }
 
-export interface VeloxLayoutResponse {
+export interface JDLayoutResponse {
   strapi: {
-    context: VeloxContext;
-    route: VeloxRoute;
+    context: JDContext;
+    route: JDRoute;
   }
 }
 
 // Hook / Utility function to fetch layout
-export const fetchVeloxLayout = async (
+export const fetchJDLayout = async (
     apiUrl: string, 
     slug: string, 
     locale: string = 'en',
     options?: RequestInit
-): Promise<VeloxLayoutResponse | null> => {
+): Promise<JDLayoutResponse | null> => {
     try {
         const querySymbol = slug.includes('?') ? '&' : '?';
         const res = await fetch(`${apiUrl}/api/layout/${slug}${querySymbol}locale=${locale}`, {
@@ -41,13 +41,13 @@ export const fetchVeloxLayout = async (
         });
 
         if (!res.ok) {
-            console.error(`[Velox SDK] Failed to fetch layout: ${res.statusText}`);
+            console.error(`[JD SDK] Failed to fetch layout: ${res.statusText}`);
             return null;
         }
 
-        return await res.json() as VeloxLayoutResponse;
+        return await res.json() as JDLayoutResponse;
     } catch (error) {
-        console.error(`[Velox SDK] Network error fetching layout`, error);
+        console.error(`[JD SDK] Network error fetching layout`, error);
         return null;
     }
 }

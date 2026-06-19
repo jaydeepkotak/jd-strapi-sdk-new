@@ -16,27 +16,27 @@ interface PlaceholderProps {
 }
 declare const Placeholder: React.FC<PlaceholderProps>;
 
-interface VeloxPlaceholderData {
+interface JDPlaceholderData {
     __component: string;
     [key: string]: any;
 }
-interface VeloxRoute {
+interface JDRoute {
     name: string;
     displayName: string;
-    placeholders: Record<string, VeloxPlaceholderData[]>;
+    placeholders: Record<string, JDPlaceholderData[]>;
 }
-interface VeloxContext {
+interface JDContext {
     pageEditing: boolean;
     site: Record<string, any>;
     language: string;
     locales: any[];
 }
-interface VeloxLayoutResponse {
+interface JDLayoutResponse {
     strapi: {
-        context: VeloxContext;
-        route: VeloxRoute;
+        context: JDContext;
+        route: JDRoute;
     };
 }
-declare const fetchVeloxLayout: (apiUrl: string, slug: string, locale?: string, options?: RequestInit) => Promise<VeloxLayoutResponse | null>;
+declare const fetchJDLayout: (apiUrl: string, slug: string, locale?: string, options?: RequestInit) => Promise<JDLayoutResponse | null>;
 
-export { ComponentFactory, type ComponentFactoryProps, Placeholder, type PlaceholderProps, type VeloxContext, type VeloxLayoutResponse, type VeloxPlaceholderData, type VeloxRoute, fetchVeloxLayout };
+export { ComponentFactory, type ComponentFactoryProps, type JDContext, type JDLayoutResponse, type JDPlaceholderData, type JDRoute, Placeholder, type PlaceholderProps, fetchJDLayout };

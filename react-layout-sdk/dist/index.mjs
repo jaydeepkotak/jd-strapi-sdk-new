@@ -9,7 +9,7 @@ var ComponentFactory = ({
 }) => {
   const Component = componentMap[componentName];
   if (!Component) {
-    console.warn(`[Velox SDK] Component not found for: ${componentName}`);
+    console.warn(`[JD SDK] Component not found for: ${componentName}`);
     return /* @__PURE__ */ React.createElement("div", { style: {
       padding: "2rem",
       margin: "1rem",
@@ -49,24 +49,24 @@ var Placeholder = ({ name, rendering, customProps, componentMap }) => {
 };
 
 // src/index.ts
-var fetchVeloxLayout = async (apiUrl, slug, locale = "en", options) => {
+var fetchJDLayout = async (apiUrl, slug, locale = "en", options) => {
   try {
     const querySymbol = slug.includes("?") ? "&" : "?";
     const res = await fetch(`${apiUrl}/api/layout/${slug}${querySymbol}locale=${locale}`, {
       ...options
     });
     if (!res.ok) {
-      console.error(`[Velox SDK] Failed to fetch layout: ${res.statusText}`);
+      console.error(`[JD SDK] Failed to fetch layout: ${res.statusText}`);
       return null;
     }
     return await res.json();
   } catch (error) {
-    console.error(`[Velox SDK] Network error fetching layout`, error);
+    console.error(`[JD SDK] Network error fetching layout`, error);
     return null;
   }
 };
 export {
   ComponentFactory,
   Placeholder,
-  fetchVeloxLayout
+  fetchJDLayout
 };

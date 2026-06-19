@@ -1,7 +1,18 @@
 'use strict';
 
-const layout = require('./layout');
-
 module.exports = {
-  layout,
+  'content-api': {
+    type: 'content-api',
+    prefix: '',
+    routes: [
+      {
+        method: 'GET',
+        path: '/layout/:slug(.*)',
+        handler: 'layout.getLayout',
+        config: {
+          policies: [],
+        },
+      },
+    ],
+  },
 };
